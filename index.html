@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta - Restaurante IDEMA</title>
+    <link rel="icon" href="img/LOGOS/menu.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ----- ESTILOS GLOBALES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000 url("img/LOGOS/fondo.png") center/cover no-repeat fixed;
+            font-family: 'Bodoni Moda', serif;
+            color: #eee;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #ff4500;
+        }
+
+        /* ----- ENCABEZADO ----- */
+        .encabezado {
+            text-align: center;
+            background: #000;
+            padding: 15px;
+            filter: drop-shadow(0px 0px 8px rgba(180, 180, 180, 0.623));
+        }
+
+        .logo {
+            position: relative;
+            height: 180px;
+            width: 300px;
+            object-fit: cover;
+
+        }
+
+        /* ----- CATEGORÍAS ----- */
+        .categoria {
+            margin: 15px auto;
+            max-width: 1000px;
+            border-radius: 70px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            transition: all 1s ease;
+        }
+
+        .categoria:hover {
+            transform: scale(1.01);
+            box-shadow: 0px 4px 15px #d4d4d427;
+            border-radius: 40px 40px 10px 10px;
+
+        }
+
+
+        .categoria-toggle {
+            width: 100%;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            background: none;
+            display: block;
+        }
+
+        .categoria-toggle img {
+            width: 100%;
+            height: auto;
+            /* ahora escala proporcional */
+            max-height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .categoria-contenido {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        /* ----- MENÚ ----- */
+        .menu {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .plato {
+            margin: 20px;
+            background: #1c1c1c;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(92, 92, 92, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .plato:hover {
+            transform: scale(1.02);
+        }
+
+        .plato img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .precio {
+            display: inline-block;
+            background: #ff4500;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+
+        /* ----- FOOTER ----- */
+        .footer {
+            bottom: 1000px;
+            background: #1c1c1c;
+            color: #eee;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #d4d4d4;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            text-decoration: none;
+
+        }
+
+
+        .footer-col a:hover {
+            transform: scale(2);
+            transition: 0s;
+            color: #ff4500;
+        }
+
+        /* LOGO */
+        .footer-logo {
+            width: 170px;
+            margin-bottom: 15px;
+            border: solid 0.2px rgb(211, 153, 46);
+            border-radius: 10px;
+        }
+
+        /* LISTA DE ENLACES */
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        /* REDES SOCIALES */
+
+        /* REDES SOCIALES CON IMÁGENES */
+        a {
+
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: block;
+            gap: 20px;
+
+        }
+
+        .social-icons a img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            transition: transform 1s ease;
+
+        }
+
+        .social-icons a img:hover {
+            transform: scale(1.2);
+            gap: 10px;
+        }
+
+        .img_info {
+            width: 340px;
+            height: 440px;
+            border-radius: 40px 10px 40px;
+            border: 4px solid #ff99008e;
+
+        }
+
+
+
+
+        /* NEWSLETTER */
+
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .newsletter button {
+            background: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #ff9900;
+        }
+
+        /* FOOTER BOTTOM */
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .img_footer {
+            height: 10px;
+            width: 10px;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (min-width: 768px) {
+            .menu {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categoria-toggle img {
+                max-height: 220px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .menu {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .categoria-toggle img {
+                max-height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <img src="img/LOGOS/logoT.png" alt="IDEMA" class="logo" id="logo">
+    </header>
+
+    <!-- CATEGORÍA HAMBURGUESAS -->
+    <section class="categoria">
+        <button class="categoria-toggle">
+            <img src="img/LOGOS/hamburguesas.png" alt="Hamburguesas">
+        </button>
+        <div class="categoria-contenido">
+            <div class="menu">
+                <div class="plato">
+                    <img src="img/comida/comida_rapida/hamburguesa_1.png" alt="Hamburguesa 1">
+                    <div class="info">
+                        <h2>Hamburguesa 1</h2>
+                        <p>Clásico con carne 100% res, queso fundido y vegetales frescos.</p>
+                        <span class="precio">$20.000</span>
+                    </div>
+                </div>
+                <div class="plato">
+                    <img src="img/comida/comida_rapida/hamburguesa_2.png" alt="Hamburguesa 2">
+                    <div class="info">
+                        <h2>Hamburguesa 2</h2>
+                        <p>Doble carne, queso cheddar y salsa especial.</p>
+                        <span class="precio">$25.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA BEBIDAS -->
+    <section class="categoria">
+        <button class="categoria-toggle">
+            <img src="img/LOGOS/bebidas1.png" alt="Bebidas">
+        </button>
+        <div class="categoria-contenido">
+            <div class="menu">
+                <div class="plato">
+                    <img src="img/comida/bebidas/cocacola.png" alt="Coca Cola">
+                    <div class="info">
+                        <h2>Coca Cola</h2>
+                        <p>Refrescante y clásica.</p>
+                        <span class="precio">$5.000</span>
+                    </div>
+                </div>
+                <div class="plato">
+                    <img src="img/comida/bebidas/limonada.png" alt="Limonada" draggable="false">
+                    <div class="info">
+                        <h2>Limonada</h2>
+                        <p>Natural, con hierbabuena.</p>
+                        <span class="precio">$8.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- LOGO + CONTACTO -->
+            <div class="footer-col">
+                <a href="#logo">
+
+                    <img src="img/LOGOS/logoT.png" alt="Logo Restaurante" class="footer-logo" draggable="false">
+
+                </a>
+
+                <p>📞 300-000-0000</p>
+                <p>📧 contacto@restaurantepopayan.com</p>
+                <p>📍 Centro de Popayán, Cauca, Colombia</p>
+            </div>
+
+            <!-- ENLACES -->
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#logo" class="Enlaces_li">Inicio</a></li>
+                    <li><a href="#quienes" class="Enlaces_li">Quiénes Somos</a></li>
+                    <li><a href="https://www.google.com/maps/place/Terraplaza+Centro+Comercial/@2.4869611,-76.5606549,285m/data=!3m1!1e3!4m6!3m5!1s0x8e3004177e274495:0x5df1054aaf95cad2!8m2!3d2.487111!4d-76.560729!16s%2Fg%2F11bw2gdsfl?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D"
+                            class="Enlaces_li" target="_blank">Ubicación</a></li>
+                    <li><a href="#menu" class="Enlaces_li">Menú</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+
+                    <a href="https://instagram.com/tupagina" target="_blank">
+                        <img src="img/LOGOS/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://wa.me/573506529924" target="_blank">
+                        <img src="img/LOGOS/whatsapp.png" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+
+            <!-- NEWSLETTER -->
+
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Restaurante Popayán | Todos los derechos reservados</p>
+        </div>
+
+
+    </footer>
+
+
+    <!-- SCRIPT ACORDEÓN -->
+    <script>
+        const toggles = document.querySelectorAll(".categoria-toggle");
+        toggles.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const content = btn.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null; // cierra
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px"; // abre
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
