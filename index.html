@@ -46,7 +46,9 @@
 
         /* ----- CATEGORÍAS ----- */
         .categoria {
-            margin: 20px 3%;
+
+
+            margin: 15px 10px;
             max-width: 1000px;
             border-radius: 30px;
             overflow: hidden;
@@ -56,8 +58,9 @@
         }
 
         .categoria:hover {
-            transform: scale(1.01);
-            box-shadow: 0px 4px 15px #d4d4d427;
+            transform: scale(1.02);
+            box-shadow: 0px 4px 15px #ffffff42;
+            border-radius: 15px;
 
 
         }
@@ -79,6 +82,7 @@
             max-height: 180px;
             object-fit: cover;
             display: block;
+            filter: drop-shadow(0px 0.3px 10px rgba(211, 181, 15, 0.377));
         }
 
         .categoria-contenido {
@@ -284,13 +288,18 @@
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 844px) {
             .menu {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .plato img {
+                width: 100%;
+                height: 400px;
+            }
+
             .categoria-toggle img {
-                max-height: 230px;
+                max-height: 200px;
             }
         }
     </style>
@@ -323,6 +332,88 @@
                         <h2>Hamburguesa 2</h2>
                         <p>Doble carne, queso cheddar y salsa especial.</p>
                         <span class="precio">$25.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA BEBIDAS -->
+    <section class="categoria">
+        <button class="categoria-toggle">
+            <img src="img/LOGOS/bebidas!.png" alt="Bebidas">
+        </button>
+        <div class="categoria-contenido">
+            <div class="menu">
+                <div class="plato">
+                    <img src="img/comida/bebidas/cocacola.png" alt="Coca Cola">
+                    <div class="info">
+                        <h2>Coca Cola</h2>
+                        <p>Refrescante y clásica.</p>
+                        <span class="precio">$5.000</span>
+                    </div>
+                </div>
+                <div class="plato">
+                    <img src="img/comida/bebidas/limonada.png" alt="Limonada" draggable="false">
+                    <div class="info">
+                        <h2>Limonada</h2>
+                        <p>Natural, con hierbabuena.</p>
+                        <span class="precio">$8.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA BEBIDAS -->
+    <section class="categoria">
+        <button class="categoria-toggle">
+            <img src="img/LOGOS/bebidas!.png" alt="Bebidas">
+        </button>
+        <div class="categoria-contenido">
+            <div class="menu">
+                <div class="plato">
+                    <img src="img/comida/bebidas/cocacola.png" alt="Coca Cola">
+                    <div class="info">
+                        <h2>Coca Cola</h2>
+                        <p>Refrescante y clásica.</p>
+                        <span class="precio">$5.000</span>
+                    </div>
+                </div>
+                <div class="plato">
+                    <img src="img/comida/bebidas/limonada.png" alt="Limonada" draggable="false">
+                    <div class="info">
+                        <h2>Limonada</h2>
+                        <p>Natural, con hierbabuena.</p>
+                        <span class="precio">$8.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CATEGORÍA BEBIDAS -->
+    <section class="categoria">
+        <button class="categoria-toggle">
+            <img src="img/LOGOS/bebidas!.png" alt="Bebidas">
+        </button>
+        <div class="categoria-contenido">
+            <div class="menu">
+                <div class="plato">
+                    <img src="img/comida/bebidas/cocacola.png" alt="Coca Cola">
+                    <div class="info">
+                        <h2>Coca Cola</h2>
+                        <p>Refrescante y clásica.</p>
+                        <span class="precio">$5.000</span>
+                    </div>
+                </div>
+                <div class="plato">
+                    <img src="img/comida/bebidas/limonada.png" alt="Limonada" draggable="false">
+                    <div class="info">
+                        <h2>Limonada</h2>
+                        <p>Natural, con hierbabuena.</p>
+                        <span class="precio">$8.000</span>
                     </div>
                 </div>
             </div>
